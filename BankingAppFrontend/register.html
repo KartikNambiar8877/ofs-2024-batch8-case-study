@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration</title>
+    <script src="./main.js"></script>
+</head>
+<body>
+    <h2>Customer Registration</h2>
+    <form id="registerForm" onsubmit="registerCustomer(event)">
+        <label for="fName">First Name:</label><br>
+        <input type="text" id="fName" name="fName" required><br><br>
+        
+        <label for="lName">Last Name:</label><br>
+        <input type="text" id="lName" name="lName" required><br><br>
+        
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <label for="addressLine1">Address Line 1:</label><br>
+        <input type="text" id="addressLine1" name="addressLine1" required><br><br>
+        
+        <label for="addressLine2">Address Line 2:</label><br>
+        <input type="text" id="addressLine2" name="addressLine2"><br><br>
+        
+        <label for="addressLine3">Address Line 3:</label><br>
+        <input type="text" id="addressLine3" name="addressLine3"><br><br>
+        
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city" required><br><br>
+        
+        <label for="state">State:</label><br>
+        <input type="text" id="state" name="state" required><br><br>
+        
+        <label for="zip">ZIP Code:</label><br>
+        <input type="text" id="zip" name="zip" required><br><br>
+        
+        <label for="phone">Phone:</label><br>
+        <input type="text" id="phone" name="phone" required><br><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
