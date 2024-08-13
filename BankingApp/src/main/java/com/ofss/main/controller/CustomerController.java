@@ -30,4 +30,9 @@ public class CustomerController {
 		return customerService.findbyUsername(username);
 	}
 	
+	@PostMapping("login")
+	public Customer loginCustomer(@RequestBody Customer customer) {
+		return customerService.loginCustomer(customer.getUsername(), customer.getPassword());
+	}
+	
 }

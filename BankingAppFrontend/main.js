@@ -3,35 +3,48 @@ function loginCustomer(event) {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    const xmlData = `<customer>
-                        <username>${username}</username>
-                        <password>${password}</password> <!-- Update to match database column -->
-                     </customer>`;
+    const jsonData = {
+        username: username,
+        password: password
+    };
 
-    fetch("http://localhost:8080/BankApp/CustomerCRUDMain", {
+    fetch("http://localhost:8080/customer/login", {
         method: 'POST',
         headers: {
-            'Content-Type': 'text/xml'
+            'Content-Type': 'application/json'
         },
-        body: xmlData
+        body: JSON.stringify(jsonData)
     })
     .then(response => {
-        console.log(response)
-        if (response.status == 200) {
-            alert("Login successful");
+        if (response.status === 200) {
+            return response.json(); 
         } else if (response.status === 403) {
             alert("Account is blocked");
+            throw new Error('Account is blocked');
         } else if (response.status === 401) {
             alert("Invalid credentials");
+            throw new Error('Invalid credentials');
         } else {
             throw new Error('Login failed');
         }
+    })
+    .then(customer => {
+        document.getElementById("customerDetails").innerHTML = `
+            <h3>Welcome, ${customer.fName} ${customer.lName}</h3>
+            <p><strong>Username:</strong> ${customer.username}</p>
+            <p><strong>Email:</strong> ${customer.email}</p>
+            <p><strong>Phone:</strong> ${customer.phone}</p>
+            <p><strong>Address:</strong> ${customer.addressLine1}, ${customer.city}, ${customer.state}, ${customer.zip}</p>
+        `;
+        alert("Login successful");
     })
     .catch(error => {
         console.error("Error during login:", error);
         alert('Error during login: ' + error.message);
     });
 }
+
+
 
 function registerCustomer(event) {
     event.preventDefault();
@@ -49,28 +62,28 @@ function registerCustomer(event) {
     const phone = document.getElementById("phone").value;
     const email = document.getElementById("email").value;
 
-    const xmlData = `<customer>
-                        <fName>${fName}</fName>
-                        <lName>${lName}</lName>
-                        <username>${username}</username>
-                        <password>${password}</password>
-                        <addressLine1>${addressLine1}</addressLine1>
-                        <addressLine2>${addressLine2}</addressLine2>
-                        <addressLine3>${addressLine3}</addressLine3>
-                        <city>${city}</city>
-                        <state>${state}</state>
-                        <zip>${zip}</zip>
-                        <phone>${phone}</phone>
-                        <email>${email}</email>
-                        <status>A</status>
-                    </customer>`;
+    const jsonData = {
+        fName: fName,
+        lName: lName,
+        username: username,
+        password: password,
+        addressLine1: addressLine1,
+        addressLine2: addressLine2,
+        addressLine3: addressLine3,
+        city: city,
+        state: state,
+        zip: zip,
+        phone: phone,
+        email: email,
+        status: 'A'
+    };
 
-    fetch("http://localhost:8080/BankApp/CustomerRegister", {
+    fetch("http://localhost:8080/customer/addcustomer", {
         method: 'POST',
         headers: {
-            'Content-Type': 'text/xml'
+            'Content-Type': 'application/json'
         },
-        body: xmlData
+        body: JSON.stringify(jsonData)
     })
     .then(response => {
         console.log(response);
@@ -86,3 +99,7 @@ function registerCustomer(event) {
     });
 }
 
+
+function redirectToLogin() {
+    window.location.href = "login.html"; 
+}
