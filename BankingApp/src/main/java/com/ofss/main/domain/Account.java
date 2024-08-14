@@ -1,7 +1,7 @@
 package com.ofss.main.domain;
 
 import jakarta.persistence.*;
-import java.math.BigDecimal;
+import java.math.*;
 import java.sql.Date;
 
 @Entity
@@ -17,7 +17,7 @@ public class Account {
     private String accountType;
 
     @Column(name = "min_balance")
-    private BigDecimal minBalance;
+    private double minBalance;
 
     @Column(name = "account_status")
     private String status;
@@ -35,14 +35,14 @@ public class Account {
     private Integer validity;
 
     @Column(name = "overdraft_balance")
-    private BigDecimal overdraftBalance;
+    private double overdraftBalance;
 
     @Column(name = "main_balance")
-    private BigDecimal mainBalance;
+    private double mainBalance;
 
     // Constructors
-    public Account(long accountNo, String accountType, BigDecimal minBalance, String status, int branchNo, Date openingDate,
-                   int customerID, Integer validity, BigDecimal overdraftBalance, BigDecimal mainBalance) {
+    public Account(long accountNo, String accountType, double minBalance, String status, int branchNo, Date openingDate,
+                   int customerID, Integer validity, double overdraftBalance, double mainBalance) {
         this.accountNo = accountNo;
         this.accountType = accountType;
         this.minBalance = minBalance;
@@ -75,11 +75,11 @@ public class Account {
         this.accountType = accountType;
     }
 
-    public BigDecimal getMinBalance() {
+    public double getMinBalance() {
         return minBalance;
     }
 
-    public void setMinBalance(BigDecimal minBalance) {
+    public void setMinBalance(double minBalance) {
         this.minBalance = minBalance;
     }
 
@@ -123,19 +123,19 @@ public class Account {
         this.validity = validity;
     }
 
-    public BigDecimal getOverdraftBalance() {
+    public double getOverdraftBalance() {
         return overdraftBalance;
     }
 
-    public void setOverdraftBalance(BigDecimal overdraftBalance) {
+    public void setOverdraftBalance(double overdraftBalance) {
         this.overdraftBalance = overdraftBalance;
     }
 
-    public BigDecimal getMainBalance() {
+    public double getMainBalance() {
         return mainBalance;
     }
 
-    public void setMainBalance(BigDecimal mainBalance) {
+    public void setMainBalance(double mainBalance) {
         this.mainBalance = mainBalance;
     }
 }

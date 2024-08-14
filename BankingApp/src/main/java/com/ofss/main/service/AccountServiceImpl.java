@@ -21,30 +21,33 @@ public class AccountServiceImpl implements AccountService {
         try {
             switch (account.getAccountType().toLowerCase()) {
                 case "savings":
-                    account.setMinBalance(BigDecimal.valueOf(10000));
-                    account.setOverdraftBalance(BigDecimal.ZERO);
+                	account.setMainBalance(0.00);
+                    account.setMinBalance(10000.00);  
+                    account.setOverdraftBalance(0.00); 
                     break;
                 case "current":
-                    account.setMinBalance(BigDecimal.ZERO);
-                    account.setOverdraftBalance(BigDecimal.valueOf(50000));
+                	account.setMainBalance(0.00);
+                    account.setMinBalance(0.00);  
+                    account.setOverdraftBalance(50000.00);  
                     break;
                 case "fd":
-                    account.setMinBalance(BigDecimal.ZERO); 
-                    account.setOverdraftBalance(BigDecimal.ZERO);
+                	account.setMainBalance(0.00);
+                    account.setMinBalance(0.00);  
+                    account.setOverdraftBalance(0.00); 
                     break;
                 default:
                     System.out.println("Invalid account type");
                     return false;
             }
 
-            
-            accountRepository.save(account); 
+            accountRepository.save(account);  
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
+
 
     @Override
     public boolean updateAccount(Account account) {
