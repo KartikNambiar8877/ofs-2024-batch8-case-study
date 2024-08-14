@@ -32,6 +32,7 @@ public class TransactionServiceImpl implements TransactionService {
 
             
             Transaction transaction = new Transaction();
+            System.out.println(accountRepository.findById(accountId));
             transaction.setSenderAccount(accountRepository.findById(accountId).orElse(null));
             transaction.setTransactionAmount(amount);
             transaction.setTransactionType("DEPOSIT");

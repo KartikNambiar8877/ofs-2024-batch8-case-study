@@ -138,4 +138,13 @@ public class Account {
     public void setMainBalance(double mainBalance) {
         this.mainBalance = mainBalance;
     }
+
+	@Override
+	public String toString() {
+		return "Account [accountNo=" + accountNo + ", accountType=" + accountType + ", minBalance=" + minBalance
+				+ ", status=" + status + ", branchNo=" + branchNo + ", openingDate=" + openingDate + ", customerID="
+				+ customerID + ", validity=" + validity + ", overdraftBalance=" + overdraftBalance + ", mainBalance="
+				+ mainBalance + "]";
+	}
+    
 }

@@ -37,10 +37,7 @@ function promptUser() {
     rl.question('Enter item ID: ', (id) => {
         rl.question('Enter item name: ', (name) => {
             rl.question('Enter item value: ', (value) => {
-                
                 const newItem = { id: parseInt(id, 10), name: name, value: value };
-
-                
                 addItem(newItem);
             });
         });

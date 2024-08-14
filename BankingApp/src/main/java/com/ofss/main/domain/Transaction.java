@@ -22,11 +22,11 @@ public class Transaction {
     private String transactionType;
 
     @ManyToOne
-    @JoinColumn(name = "sender_acc_id", insertable = false, updatable = false)
+    @JoinColumn(name = "sender_acc_id")
     private Account senderAccount;
 
     @ManyToOne
-    @JoinColumn(name = "receiver_acc_id", insertable = false, updatable = false)
+    @JoinColumn(name = "receiver_acc_id")
     private Account receiverAccount;
 
 	public long getTransactionId() {
