@@ -3,6 +3,7 @@ package com.ofss.main.domain;
 import jakarta.persistence.*;
 import java.math.*;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "account_info")
@@ -26,7 +27,7 @@ public class Account {
     private int branchNo;
 
     @Column(name = "opening_date")
-    private Date openingDate;
+    private Timestamp openingDate;
 
     @Column(name = "acc_customer_id", nullable = false)
     private int customerID;
@@ -41,7 +42,7 @@ public class Account {
     private double mainBalance;
 
     // Constructors
-    public Account(long accountNo, String accountType, double minBalance, String status, int branchNo, Date openingDate,
+    public Account(long accountNo, String accountType, double minBalance, String status, int branchNo, Timestamp openingDate,
                    int customerID, Integer validity, double overdraftBalance, double mainBalance) {
         this.accountNo = accountNo;
         this.accountType = accountType;
@@ -99,11 +100,11 @@ public class Account {
         this.branchNo = branchNo;
     }
 
-    public Date getOpeningDate() {
+    public Timestamp getOpeningDate() {
         return openingDate;
     }
 
-    public void setOpeningDate(Date openingDate) {
+    public void setOpeningDate(Timestamp openingDate) {
         this.openingDate = openingDate;
     }
 

@@ -12,7 +12,7 @@ public class Transaction {
     @Column(name = "transaction_id")
     private long transactionId;
     
-    @Column(name = "t_datetime")
+    @Column(name = "t_datetime",nullable = false)
     private Timestamp transactionDatetime;
     
     @Column(name = "t_amt")

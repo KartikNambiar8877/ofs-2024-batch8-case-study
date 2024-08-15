@@ -1,6 +1,8 @@
 package com.ofss.main.service;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,14 +23,16 @@ public class AccountServiceImpl implements AccountService {
         try {
             switch (account.getAccountType().toLowerCase()) {
                 case "savings":
-                	account.setMainBalance(0.00);
+                	account.setMainBalance(10000.00);
                     account.setMinBalance(10000.00);  
                     account.setOverdraftBalance(0.00); 
+                    account.setValidity(0);
                     break;
                 case "current":
                 	account.setMainBalance(0.00);
                     account.setMinBalance(0.00);  
-                    account.setOverdraftBalance(50000.00);  
+                    account.setOverdraftBalance(50000.00); 
+                    account.setValidity(0);
                     break;
                 case "fd":
                 	account.setMainBalance(0.00);
@@ -39,7 +43,9 @@ public class AccountServiceImpl implements AccountService {
                     System.out.println("Invalid account type");
                     return false;
             }
-
+            LocalDateTime localdatetime = LocalDateTime.now();
+            Timestamp timestamp = Timestamp.valueOf(localdatetime);
+            account.setOpeningDate(timestamp);
             accountRepository.save(account);  
             return true;
         } catch (Exception e) {
