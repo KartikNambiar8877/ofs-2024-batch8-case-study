@@ -32,8 +32,27 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer updateCustomer(Customer customer) {
-        return null;
+    	Integer customerId = (int) customer.getCustomerId(); // Ensure this cast is safe
+        Optional<Customer> existingCustomerOpt = customerRepository.findById(customerId);
+        if (existingCustomerOpt.isPresent()) {
+            Customer existingCustomer = existingCustomerOpt.get();
+           
+            existingCustomer.setfName(customer.getfName());
+            existingCustomer.setlName(customer.getlName());
+            existingCustomer.setUsername(customer.getUsername());
+            existingCustomer.setPassword(customer.getPassword());
+            existingCustomer.setAddressLine1(customer.getAddressLine1());
+            existingCustomer.setAddressLine2(customer.getAddressLine2());
+            existingCustomer.setAddressLine3(customer.getAddressLine3());
+            existingCustomer.setPhone(customer.getPhone());
+            existingCustomer.setEmail(customer.getEmail());
+
+            return customerRepository.save(existingCustomer);
+        } else {
+            throw new RuntimeException("Customer not found");
+        }
     }
+
 
     @Override
     public Customer loginCustomer(String username, String password) {
