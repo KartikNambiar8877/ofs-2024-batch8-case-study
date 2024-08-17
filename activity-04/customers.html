@@ -1,0 +1,13 @@
+<div class="oj-hybrid-padding">
+  <h1>User information</h1>
+  <oj-table
+  id="table"
+  aria-label="customer_details"
+  accessibility.row-header="fName"
+  data="[[dataprovider]]"
+  columns-default='{"sortable": "disabled"}'
+  columns='[{"headerText": "Customer ID", "field": "customerId", "id": "customerId"},
+            {"headerText": "First Name", "field": "fName", "id": "firstName"},
+            {"headerText": "Last Name", "field": "lName", "id": "lastName"}]'
+  class="demo-table-container"></oj-table>
+</div>

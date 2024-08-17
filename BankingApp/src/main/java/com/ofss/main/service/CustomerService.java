@@ -1,5 +1,7 @@
 package com.ofss.main.service;
 
+import java.util.List;
+
 import com.ofss.main.domain.Customer;
 
 public interface CustomerService {
@@ -13,6 +15,8 @@ public interface CustomerService {
     public boolean deleteCustomerByCustomerId(int customerId);
     
     public Customer loginCustomer(String username,String password);
+    
+    public List<Customer> getallCustomers();
 	
 
 }

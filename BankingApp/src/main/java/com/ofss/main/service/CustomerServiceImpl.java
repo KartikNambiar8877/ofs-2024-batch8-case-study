@@ -1,5 +1,6 @@
 package com.ofss.main.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,4 +79,10 @@ public class CustomerServiceImpl implements CustomerService {
 		
 					return customerOptional;
 	}
+
+    @Override
+    public List<Customer> getallCustomers() {
+        return (List<Customer>) customerRepository.findAll();
+    }
+
 }

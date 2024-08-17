@@ -1,7 +1,10 @@
 package com.ofss.main.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -38,6 +41,10 @@ public class CustomerController {
 	@PutMapping("update")
     public Customer updateCustomer(@RequestBody Customer customer) {
         return customerService.updateCustomer(customer);
+    }
+	@GetMapping("allcustomers")
+    public List<Customer> getallCustomers() {
+        return customerService.getallCustomers();
     }
 	
 }
