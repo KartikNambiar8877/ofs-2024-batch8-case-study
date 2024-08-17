@@ -4,11 +4,14 @@
     <oj-c-input-text id="text-input" value="{{firstname}}" label-hint="Enter Username"
       label-edge="inside"></oj-c-input-text>
 
-    <oj-input-password id="password" value="{{value}}" label-hint="Enter Password"
-      mask-icon="visible"></oj-input-password>
+    <oj-c-input-password id="password" value="{{value}}" label-hint="Enter Password"
+      mask-icon="visible"></oj-c-input-password>
+
 
       <div>
-        <oj-button id="button1" class="button1" data-bind="click: handleLogin">Submit</oj-button>
+        <oj-button id="button1" class="button1" on-oj-action="[[buttonAction]]">Submit</oj-button>
       </div>
+
+      
   </div>
 </div>
