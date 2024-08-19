@@ -160,4 +160,16 @@ public class TransactionServiceImpl implements TransactionService {
 		return transactionRepository.findByAccountNo(accountNo);
 	}
 
+	@Override
+	public boolean deleteTransactionbyAccountNo(int accountNo) {
+	    try {
+	        transactionRepository.deleteTransactionbyAccountNo(accountNo);
+	        return true;
+	    } catch (Exception e) {
+	        // Log the exception
+	        return false;
+	    }
+	}
+
+
 }

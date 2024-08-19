@@ -45,5 +45,15 @@ public class TransactionController {
     public List<Transaction> transactionhistory(@RequestBody Account account) {
         return transactionService.getTransactionHistory(account.getAccountNo());
     }
+    @DeleteMapping("/delete/{accountNo}")
+    public boolean deleteTransactionbyAccountNo(@PathVariable int accountNo) {
+    	try {
+            transactionService.deleteTransactionbyAccountNo(accountNo);
+            return true;  
+        } catch (Exception e) {
+        	System.out.println(e);
+            return false;
+        }
+    }
 }
 

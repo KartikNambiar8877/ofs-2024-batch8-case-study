@@ -12,4 +12,5 @@ public interface TransactionService {
     boolean transfer(long senderAccountId, long receiverAccountId, double amount);
     Optional<Account> getAccountDetails(long accountId);
     List<Transaction> getTransactionHistory(long accountNo);
+    boolean deleteTransactionbyAccountNo(int accountNo);
 }

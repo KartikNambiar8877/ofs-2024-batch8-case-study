@@ -5,13 +5,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ofss.main.domain.Cheques;
+import com.ofss.main.domain.Roi;
 
-public interface ChequesRepository extends CrudRepository<Cheques, Integer> {
-	
-	@Modifying
+public interface RoiRepository extends CrudRepository<Roi, Integer> {
+
+    @Modifying
     @Transactional
-    @Query("DELETE FROM Cheques c WHERE c.chkAccountId = ?1")
-	void deleteChequesbyAccountNo(int accountNo);
-
+    @Query("DELETE FROM Roi r WHERE r.roiAccountNo = ?1")
+    void deleteByAccountNo(int accountNo);
 }

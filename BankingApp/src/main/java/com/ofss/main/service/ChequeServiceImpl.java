@@ -3,10 +3,13 @@ package com.ofss.main.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ofss.main.domain.Cheques;
 import com.ofss.main.repository.ChequesRepository;
 
+
+@Service
 public class ChequeServiceImpl implements ChequeService{
 	
 	@Autowired
@@ -35,6 +38,15 @@ public class ChequeServiceImpl implements ChequeService{
 	    }
 	}
 
+	@Override
+    public boolean deleteChequesbyAccountNo(int accountNo) {
+        try {
+            chequesRepository.deleteChequesbyAccountNo(accountNo);
+            return true;  
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
 
 }

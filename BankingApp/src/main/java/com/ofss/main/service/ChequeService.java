@@ -6,4 +6,6 @@ public interface ChequeService {
 	
 	public boolean updateCheque(Cheques cheque);
 	
+	public boolean deleteChequesbyAccountNo(int accountNo);
+	
 }
