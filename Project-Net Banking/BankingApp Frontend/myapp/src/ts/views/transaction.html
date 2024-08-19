@@ -1,0 +1,28 @@
+<div class="oj-hybrid-padding">
+  <h2>Transaction History</h2>
+  
+  <div>
+    <oj-input-text id="accountNo" value="{{accountNo}}" label-hint="Enter Account No"
+      label-edge="inside"></oj-input-text>
+    <oj-button id="fetchHistoryButton" on-oj-action="[[fetchTransactionHistory]]">Submit</oj-button>
+  </div>
+
+  <oj-table id="transactionTable" aria-label="Transaction History" accessibility.row-header="transactionId"
+    data="[[transactionDataProvider]]" columns-default='{"sortable": "enabled"}' columns='[
+      {"headerText": "Transaction ID", "field": "transactionId", "id": "transactionId"},
+      {"headerText": "Sender Account", "field": "senderAccount.accountNo", "id": "senderAccount"},
+      {"headerText": "Receiver Account", "field": "receiverAccount.accountNo", "id": "receiverAccount"},
+      {"headerText": "Amount", "field": "transactionAmount", "id": "transactionAmount"},
+      {"headerText": "Type", "field": "transactionType", "id": "transactionType"},
+      {"headerText": "Transaction Date", "field": "transactionDatetime", "id": "transactionDatetime"}
+    ]' class="demo-table-container">
+  </oj-table>
+
+  <h2>Transfer Funds</h2>
+    <oj-c-input-text id="receiverAccountNo" value="{{receiverAccountNo}}" label-hint="Receiver Account No"
+      label-edge="inside"></oj-c-input-text>
+    <oj-c-input-number id="Amount" value="{{Amount}}" label-hint="Amount"
+      label-edge="inside"></oj-c-input-number>
+    <oj-button id="transferButton" on-oj-action="[[transferFunds]]">Transfer</oj-button>
+  </oj-form-layout>
+</div>

@@ -1,0 +1,32 @@
+
+<h2>Customer Registration Form</h2>
+<oj-form-layout id="formLayoutOptions" max-columns="2" direction="row" user-assistance-density="compact">
+    <oj-c-input-text id="firstname" value="{{firstname}}" label-hint="Enter Firstname"
+        label-edge="inside"></oj-c-input-text>
+    <oj-c-input-text id="lastname" value="{{lastname}}" label-hint="Enter Lastname"
+        label-edge="inside"></oj-c-input-text>
+    <oj-c-input-text id="username" value="{{username}}" label-hint="Enter Username"
+        label-edge="inside"></oj-c-input-text>
+    <oj-c-input-password id="password" value="{{password}}" label-hint="Enter Password"
+        mask-icon="visible"></oj-c-input-password>
+    <oj-c-input-text id="addressLine1" value="{{addressLine1}}" label-hint="Enter Address Line 1"
+        label-edge="inside"></oj-c-input-text>
+    <oj-c-input-text id="addressLine2" value="{{addressLine2}}" label-hint="Enter Address Line 2"
+        label-edge="inside"></oj-c-input-text>
+    <oj-c-input-text id="addressLine3" value="{{addressLine3}}" label-hint="Enter Address Line 3"
+        label-edge="inside"></oj-c-input-text>
+    <oj-c-input-text id="city" value="{{city}}" label-hint="Enter City" label-edge="inside"></oj-c-input-text>
+    <oj-c-input-text id="state" value="{{state}}" label-hint="Enter State" label-edge="inside"></oj-c-input-text>
+
+    <oj-c-input-number id="zip" value="{{zip}}" label-hint="Enter Zip Code" label-edge="inside"
+        pattern="#####"></oj-c-input-number>
+
+    <oj-c-input-number id="phone" value="{{phone}}" label-hint="Enter Phone Number" label-edge="inside" max="9999999999"
+         pattern="##########"></oj-c-input-number>
+
+    <oj-c-input-text id="email" value="{{email}}" label-hint="Enter Email" label-edge="inside"></oj-c-input-text>
+</oj-form-layout>
+
+<div>
+    <oj-button id="button1" class="button1" on-oj-action="[[buttonAction]]">Submit</oj-button>
+</div>

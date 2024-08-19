@@ -1,0 +1,30 @@
+<div class="oj-hybrid-padding">
+  <h2>Customer Account Information</h2>
+  <oj-table id="table" aria-label="Customer Account Details" accessibility.row-header="accountNo"
+    data="[[dataprovider]]" columns-default='{"sortable": "enabled"}' columns='[
+      {"headerText": "Account Number", "field": "accountNo", "id": "accountNo"},
+      {"headerText": "Account Type", "field": "accountType", "id": "accountType"},
+      {"headerText": "Main Balance", "field": "mainBalance", "id": "mainBalance"},
+      {"headerText": "Overdraft Balance", "field": "overdraftBalance", "id": "overdraftBalance"}
+    ]' class="demo-table-container">
+  </oj-table>
+  
+  <h2>Add New Account</h2>
+  <oj-form-layout id="formLayoutOptions" max-columns="2" direction="row" user-assistance-density="compact">
+    <oj-input-text id="AccountType" value="{{AccountType}}" label-hint="Enter Account Type"
+      label-edge="inside"></oj-input-text>
+      
+    <oj-input-number id="Validity" value="{{Validity}}" label-hint="Enter Validity (in months)"
+      label-edge="inside"></oj-input-number>
+      
+    <oj-button id="button2" class="button2" on-oj-action="[[buttonAction2]]">Create</oj-button>
+  </oj-form-layout>
+
+  <h2>Delete Account</h2>
+  <oj-form-layout id="formLayoutOptions" max-columns="1" direction="row" user-assistance-density="compact">
+    <oj-input-text id="AccountNo" value="{{AccountNo}}" label-hint="Enter Account No"
+      label-edge="inside"></oj-input-text>
+     
+    <oj-button id="button3" class="button3" on-oj-action="[[buttonAction3]]">Delete</oj-button>
+  </oj-form-layout>
+</div>
